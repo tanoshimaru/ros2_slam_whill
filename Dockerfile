@@ -1,5 +1,5 @@
 # ベースイメージ
-FROM dustynv/ros:humble-ros-core-l4t-r35.3.1
+FROM dustynv/ros:humble-desktop-l4t-r35.3.1
 
 # 必要なツールをインストール
 RUN apt-get update \
