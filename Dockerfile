@@ -22,9 +22,6 @@ RUN apt-get update \
 # シェルをBashに変更
 SHELL ["/bin/bash", "-c"]
 
-# ROS2環境変数を設定
-RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-
 RUN apt-get update \
     && apt-get upgrade -y
 
