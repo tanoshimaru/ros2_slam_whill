@@ -16,7 +16,6 @@ RUN apt-get update \
     libpcl-dev \
     libyaml-cpp-dev \
     libpcap-dev \
-    ros-humble-rviz2 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
