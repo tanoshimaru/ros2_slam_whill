@@ -7,23 +7,35 @@ RUN apt-get update \
     && apt-get install -y \
     wget \
     curl \
+    vim \
     nano \
     sudo \
     x11-apps \
     iproute2 \
     iputils-ping \
     usbutils \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y \
     libpcl-dev \
     libyaml-cpp-dev \
     libpcap-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# シェルをBashに変更
-SHELL ["/bin/bash", "-c"]
+RUN apt-get purge -y '*opencv*'
+RUN apt-get install -y libopencv
 
 RUN apt-get update \
-    && apt-get upgrade -y
+    && apt-get upgrade -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# ROS2環境変数を設定
+RUN echo "source /opt/ros/humble/install/setup.bash" >> ~/.bashrc
 
 # GUIアプリケーションを動作させるための設定
 ENV DISPLAY=:0

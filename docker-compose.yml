@@ -2,6 +2,7 @@ services:
   ros2:
     build: .
     container_name: ros2
+    runtime: nvidia
     network_mode: "host" # ホストネットワークを使用
     privileged: true     # USBデバイスにアクセスするために特権モードを使用
     environment:
