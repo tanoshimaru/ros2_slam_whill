@@ -9,6 +9,7 @@ RUN apt-get update \
     curl \
     vim \
     nano \
+    htop \
     sudo \
     x11-apps \
     iproute2 \
