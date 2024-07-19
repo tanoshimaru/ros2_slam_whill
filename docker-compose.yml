@@ -1,0 +1,18 @@
+services:
+  ros2:
+    build: .
+    container_name: ros2
+    runtime: nvidia
+    network_mode: "host" # ホストネットワークを使用
+    privileged: true     # USBデバイスにアクセスするために特権モードを使用
+    environment:
+      - DISPLAY=${DISPLAY} # ホストのDISPLAY環境変数を渡す
+    volumes:
+      - ~/workspace:/workspace # ROS2ワークスペースを共有
+      - /tmp/.X11-unix:/tmp/.X11-unix # X11ソケットを共有
+      - /dev/bus/usb:/dev/bus/usb     # USBデバイスを共有
+      # - /etc/machine-id:/etc/machine-id:ro # 必要に応じて
+    devices:
+      - /dev/usb # USBデバイスを使用可能にする
+    tty: true
+    stdin_open: true
