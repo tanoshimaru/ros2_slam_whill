@@ -27,7 +27,10 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get purge -y '*opencv*'
+RUN apt-get purge -y '*opencv*' \
+    && apt-get update \
+    && apt-get upgrade -y
+
 RUN apt-get install -y libopencv
 
 RUN apt-get update \
