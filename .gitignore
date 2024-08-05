@@ -11,5 +11,7 @@ CTestTestfile.cmake
 _deps
 
 g2o
+libusb-1.0.27
+pcl
 slam_ws
 velodyne_ws

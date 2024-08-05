@@ -4,7 +4,7 @@
 後ほど追加
 
 
-## Setup
+## Install
 1. `docker compose up -d`
 2. `docker compose ros2 bash`
 3. `cd /workspace`
@@ -15,6 +15,10 @@
 8. `bash 5_slam.bash`
 
 ## Run
+1. `xhost +local:`
+2. `docker compose up -d`
+3. `docker compose ros2 bash`
+
 ### Terminal 1
 Velodyneドライバの実行
 ```bash
@@ -25,8 +29,8 @@ ros2 run velodyne_driver velodyne_driver_node --ros-args -p device_ip:="192.168.
 ### Terminal 2
 lidarslam_ros2の実行
 ```bash
-source /workspace/velodyne_ws/install/setup.bash
-ros2 launch velodyne_pointcloud velodyne_convert_node-VLP16-launch.py
+source /workspace/slam_ws/install/setup.bash
+ros2 launch velodyne_pointcloud velodyne_transform_node-VLP16-launch.py
 ```
 
 ### Terminal 3
