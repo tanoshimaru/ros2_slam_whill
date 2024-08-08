@@ -9,3 +9,9 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+g2o
+libusb-1.0.27
+pcl
+slam_ws
+velodyne_ws
