@@ -40,6 +40,12 @@ source /workspace/slam_ws/install/setup.bash
 ros2 launch lidarslam lidarslam.launch.py
 ```
 
+## rosbagを作成
+60秒間すべてのトピックをレコード
+```bash
+ros2 bag record -a -d 60
+```
+
 ## Save map
 `pose_graph.g2o`，`map.pcd`を保存
 ```bash
