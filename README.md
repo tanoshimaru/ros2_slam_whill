@@ -1,8 +1,8 @@
 # ros2_slam_whill
 
 ## Overview
+[lidarslam_ros2](https://github.com/rsasaki0109/lidarslam_ros2) \
 後ほど追加
-
 
 ## Install
 1. `docker compose up -d`
@@ -27,23 +27,28 @@ ros2 run velodyne_driver velodyne_driver_node --ros-args -p device_ip:="192.168.
 ```
 
 ### Terminal 2
-lidarslam_ros2の実行
+点群データの取得
 ```bash
-source /workspace/slam_ws/install/setup.bash
+source /workspace/velodyne_ws/install/setup.bash
 ros2 launch velodyne_pointcloud velodyne_transform_node-VLP16-launch.py
 ```
 
 ### Terminal 3
-rviz2でmapの確認
+lidarslam_ros2の実行
 ```bash
-rviz2 -d mapping.rviz
+source /workspace/slam_ws/install/setup.bash
+ros2 launch lidarslam lidarslam.launch.py
 ```
 
-### Terminal 3
-PCDファイルの保存
+## Save map
+`pose_graph.g2o`，`map.pcd`を保存
 ```bash
 ros2 service call /map_save std_srvs/Empty
 ```
 
 ## Troubleshooting
-後ほど追加
+### rviz2が起動しない場合
+コンテナ外で以下のコマンドを実行
+```bash
+xhost +local:
+```
