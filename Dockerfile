@@ -44,5 +44,7 @@ RUN echo "source /opt/ros/humble/install/setup.bash" >> ~/.bashrc
 # GUIアプリケーションを動作させるための設定
 ENV DISPLAY=:0
 
+WORKDIR /workspace
+
 # エントリーポイントの設定
 CMD ["/bin/bash"]
