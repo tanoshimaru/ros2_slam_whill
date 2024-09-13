@@ -1,6 +1,7 @@
 init:
 	make build
 	make up
+	make ros2
 
 build:
 	docker compose build
